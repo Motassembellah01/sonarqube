@@ -1,45 +1,45 @@
 package sonar.newFunction;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.Before;
+import static org.assertj.core.api.Assertions.assertThat;
 
-class FibonacciTest {
+public class FibonacciTest {
   private Fibonacci fibonacciCalculator;
 
-  @BeforeEach
-  void setUp() {
-    fibonacciCalculator = new Fibonacci(20); // Set a reasonable limit for memoization
+  @Before
+  public void setUp() {
+    fibonacciCalculator = new Fibonacci(20); // Set a reasonable limit for memorization
   }
 
   @Test
-  void testFibonacciBaseCases() {
-    assertEquals(0, fibonacciCalculator.fibonacci(0), "Fibonacci(0) should be 0");
-    assertEquals(1, fibonacciCalculator.fibonacci(1), "Fibonacci(1) should be 1");
+  public void test_fibonacci_base_cases() {
+    assertThat(0 == fibonacciCalculator.fibonacci(0));
+    assertThat(1 == fibonacciCalculator.fibonacci(1));
   }
 
   @Test
-  void testFibonacciRecursiveCases() {
-    assertEquals(1, fibonacciCalculator.fibonacci(2), "Fibonacci(2) should be 1");
-    assertEquals(2, fibonacciCalculator.fibonacci(3), "Fibonacci(3) should be 2");
-    assertEquals(3, fibonacciCalculator.fibonacci(4), "Fibonacci(4) should be 3");
-    assertEquals(5, fibonacciCalculator.fibonacci(5), "Fibonacci(5) should be 5");
-    assertEquals(8, fibonacciCalculator.fibonacci(6), "Fibonacci(6) should be 8");
-    assertEquals(13, fibonacciCalculator.fibonacci(7), "Fibonacci(7) should be 13");
+  public void testFibonacciRecursiveCases() {
+    assertThat(1  == fibonacciCalculator.fibonacci(2));
+    assertThat(2  == fibonacciCalculator.fibonacci(3));
+    assertThat(3  == fibonacciCalculator.fibonacci(4));
+    assertThat(5  == fibonacciCalculator.fibonacci(5));
+    assertThat(8  == fibonacciCalculator.fibonacci(6));
+    assertThat(13 == fibonacciCalculator.fibonacci(7));
   }
 
   @Test
-  void testMemoizationPerformance() {
+  public void testMemoizationPerformance() {
     long startTime = System.nanoTime();
     int result = fibonacciCalculator.fibonacci(15); // Should be 610
     long endTime = System.nanoTime();
 
-    assertEquals(610, result, "Fibonacci(15) should be 610");
-    assertTrue((endTime - startTime) < 1_000_000, "Memoized computation should be fast");
+    assertThat(610 == result);
+    assertThat((endTime - startTime) < 1_000_000);
   }
 
   @Test
-  void testHigherValue() {
-    assertEquals(6765, fibonacciCalculator.fibonacci(20), "Fibonacci(20) should be 6765");
+  public void testHigherValue() {
+    assertThat(6765 == fibonacciCalculator.fibonacci(20));
   }
 }
