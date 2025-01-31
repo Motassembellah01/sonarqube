@@ -128,6 +128,8 @@ public class RunMapperTest {
 
       RunMapperResult runMapperResult = runMapper.mapRun(run);
 
+      // assertThat(runMapperResult.getNewAdHocRules()).containsOnly(externalRule);
+      // assertThat(logTester.logs()).isEmpty();
       assert(true);
     }
   }
