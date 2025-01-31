@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build:
+  ci-pipeline:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -34,3 +34,4 @@ jobs:
         sudo apt-get install unzip
         unzip sonar-application/build/distributions/sonar-application-25.2-SNAPSHOT.zip
         sonar-application/build/distributions/bin/linux-x86-64/sonar.sh start
+
