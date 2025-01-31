@@ -28,3 +28,9 @@ jobs:
         gradle-version: "8.9"
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+
+    - name: 'Run SonarQube'
+      run: |
+        sudo apt-get install unzip
+        unzip sonar-application/build/distributions/sonar-application-25.2-SNAPSHOT.zip
+        sonar-application/build/distributions/bin/linux-x86-64/sonar.sh start
