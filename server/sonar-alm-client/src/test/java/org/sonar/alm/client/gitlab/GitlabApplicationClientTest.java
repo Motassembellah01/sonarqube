@@ -529,7 +529,7 @@ public class GitlabApplicationClientTest {
 
     assertThatThrownBy(() -> underTest.getBranches(gitlabUrl, "token", 0L))
       .isInstanceOf(IllegalStateException.class)
-      .hasMessageContaining("Failed to connect to /" + server.getHostName());
+      .hasMessageContaining("Failed to connect to " + server.getHostName());
     assertThat(logTester.logs(Level.INFO).get(0))
       .contains("Gitlab API call to [" + server.url("/projects/0/repository/branches") + "] " +
         "failed with error message : [Failed to connect to " + server.getHostName());
