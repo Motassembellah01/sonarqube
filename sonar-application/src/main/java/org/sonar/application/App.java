@@ -37,7 +37,7 @@ public class App {
   private final SystemExit systemExit = new SystemExit();
   private StopRequestWatcher stopRequestWatcher = null;
   private StopRequestWatcher hardStopRequestWatcher = null;
-
+  // commentaire!
   public void start(String[] cliArguments) {
     AppSettingsLoader settingsLoader = new AppSettingsLoaderImpl(System2.INSTANCE, cliArguments, new ServiceLoaderWrapper());
     AppSettings settings = settingsLoader.load();
