@@ -33,5 +33,5 @@ jobs:
       run: |
         sudo apt-get install unzip
         unzip sonar-application/build/distributions/sonar-application-25.2-SNAPSHOT.zip
-        sonar-application/build/distributions/sonarqube-25.2-SNAPSHOT/bin/linux-x86-64/sonar.sh start
+        sonar-application/build/distributions/sonar-application-25.2-SNAPSHOT/bin/linux-x86-64/sonar.sh start
 
